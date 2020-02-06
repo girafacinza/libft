@@ -6,7 +6,7 @@
 #    By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 13:44:53 by lambrozi          #+#    #+#              #
-#    Updated: 2020/02/04 18:57:36 by lambrozi         ###   ########.fr        #
+#    Updated: 2020/02/06 16:56:12 by lambrozi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,8 @@ BONUS	=	ft_lstnew.c \
 			ft_lstadd_back.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
-			ft_lstiter.c
+			ft_lstiter.c \
+			ft_lstmap.c
 
 OBJS	=	$(SRCS:.c=.o)
 B_OBJS	=	$(BONUS:.c=.o)

@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 22:18:12 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/06 18:56:19 by lambrozi         ###   ########.fr       */
+/*   Created: 2020/02/06 15:43:38 by lambrozi          #+#    #+#             */
+/*   Updated: 2020/02/06 17:21:11 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*str;
-	size_t	i;
+	t_list *newlst;
 
-	if (!s)
+	if (!lst)
 		return (NULL);
-	i = 0;
-	if (NULL != (str = (char *)malloc(sizeof(char) * (len + 1))))
+	if (!(newlst = ft_lstnew(f(lst->content))))
 	{
-		while (len > 0)
-		{
-			*(str + i) = *(s + start);
-			start++;
-			i++;
-			len--;
-		}
-		*(str + i) = '\0';
-		return (str);
+		ft_lstclear(&newlst, del);
+		return (NULL);
 	}
-	return (NULL);
+	newlst->next = ft_lstmap(lst->next, f, del);
+	return (newlst);
 }

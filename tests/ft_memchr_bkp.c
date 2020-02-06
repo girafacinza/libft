@@ -1,36 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 22:18:12 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/06 18:56:19 by lambrozi         ###   ########.fr       */
+/*   Created: 2020/01/23 20:35:01 by lambrozi          #+#    #+#             */
+/*   Updated: 2020/01/23 21:27:54 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*str;
-	size_t	i;
+	const char	*str;
+	char		*dst;
+	int			i;
+	int			ok;
 
-	if (!s)
-		return (NULL);
 	i = 0;
-	if (NULL != (str = (char *)malloc(sizeof(char) * (len + 1))))
+	ok = 0;
+	dst = NULL;
+	str = s;
+	while (n--)
 	{
-		while (len > 0)
+		if (*str == (unsigned char)c)
 		{
-			*(str + i) = *(s + start);
-			start++;
-			i++;
-			len--;
+			ok = 1;
+			break;
 		}
-		*(str + i) = '\0';
-		return (str);
+		str++;
 	}
-	return (NULL);
+	if (ok)
+	{
+		while (*str != '\0')
+		{
+			*dst = *str;
+			dst++;
+			str++;
+		}
+	}
+	return (dst);
 }

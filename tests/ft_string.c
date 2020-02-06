@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/24 22:18:12 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/06 18:56:19 by lambrozi         ###   ########.fr       */
+/*   Created: 2020/01/20 13:32:14 by lambrozi          #+#    #+#             */
+/*   Updated: 2020/01/20 15:38:14 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putchar(char c)
 {
-	char	*str;
-	size_t	i;
+	write(1, &c, 1);
+}
 
-	if (!s)
-		return (NULL);
+void	ft_putstr(char *string)
+{
+	int i;
+
 	i = 0;
-	if (NULL != (str = (char *)malloc(sizeof(char) * (len + 1))))
+	while (string[i] != '\0')
 	{
-		while (len > 0)
-		{
-			*(str + i) = *(s + start);
-			start++;
-			i++;
-			len--;
-		}
-		*(str + i) = '\0';
-		return (str);
+		ft_putchar(string[i]);
+		i++;
 	}
-	return (NULL);
 }

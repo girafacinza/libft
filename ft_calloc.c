@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 17:28:19 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/01/30 23:06:42 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/06 17:32:43 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			*ft_calloc(size_t count, size_t size)
 
 	if (NULL != (ptr = (void *)malloc(count * size)))
 	{
-		ft_memset(ptr, 0, count);
+		ft_bzero(ptr, count * size);
 		return (ptr);
 	}
 	return (NULL);

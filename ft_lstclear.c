@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 18:36:08 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/04 18:45:59 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/06 15:37:13 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list *aux;
 
-	if(!lst)
+	if (!lst)
 		return ;
 	aux = *lst;
 	while (aux != NULL)

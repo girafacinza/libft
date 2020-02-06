@@ -1,46 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/25 15:35:46 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/06 18:05:07 by lambrozi         ###   ########.fr       */
+/*   Created: 2020/01/22 21:44:05 by lambrozi          #+#    #+#             */
+/*   Updated: 2020/01/22 22:55:47 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include "libft.h"
 #include <string.h>
+#include <stdio.h>
 #include <unistd.h>
 
-size_t			ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	size_t len;
+	int			i;
+	char		*dst_str;
+	const char	*src_str;
 
-	if (!src)
-		return (0);
-	len = 0;
-	while (len + 1 < dstsize && *(src + len))
+	dst_str = dst;
+	src_str = src;
+	i = 0;
+	while (dst_str[i] && src_str[i] && n--)
 	{
-		*(dst + len) = *(src + len);
-		len++;
+		*(dst_str + i) = *(src_str + i);
+		i++;
 	}
-	if (dstsize != 0)
-		*(dst + len) = '\0';
-	while (*(src + len))
-		len++;
-	return (len);
+	dst = dst_str;
+	return (dst);
 }
 
-
-int main(void)
+int				main(void)
 {
-    char str1[20] = "arroz e feijao";
-    char str2[20] = "temperos diversos";
-    int r;
+	char dst[40];
 
-    r = ft_strlcpy(str1, str2, 5);
-	write(1, str1, 20);
-    return (0);
+	memset(dst, 'j', 40);
+	ft_memcpy(dst,"abc\0defghijklmnopqrst",12);
+	write(1, dst, 40); 
+
+
+
+	return (0);	
 }

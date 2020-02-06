@@ -35,13 +35,13 @@ static void	ft_transform(int i, int n, char *nbr, int size)
 
 char		*ft_itoa(int n)
 {
-	int	len;
+	int		len;
 	char	*nbr;
 
 	len = (n >= 0) ? (ft_intsize(n, 0)) : (ft_intsize(-n, 1));
 	if (NULL != (nbr = (char *)malloc((len + 1) * sizeof(char))))
 	{
-		ft_transform(0, n, nbr, size);
+		ft_transform(0, n, nbr, len);
 	}
 	return(NULL);
 }
