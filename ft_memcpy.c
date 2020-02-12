@@ -6,11 +6,18 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/22 21:44:05 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/01/30 20:06:42 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/11 22:08:06 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Copies 'n' bytes from memory area 'src' to memory area 'dst'.
+** If 'dst' and 'src' overlap, behavior is undefined.
+** Applications in which 'dst' and 'src' might overlap should use
+** ft_memmove instead.
+*/
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

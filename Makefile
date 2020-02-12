@@ -6,7 +6,7 @@
 #    By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 13:44:53 by lambrozi          #+#    #+#              #
-#    Updated: 2020/02/06 16:56:12 by lambrozi         ###   ########.fr        #
+#    Updated: 2020/02/08 12:55:44 by lambrozi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,9 @@ SRCS	=	ft_strlen.c \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
 			ft_strmapi.c \
-			ft_strtrim.c
+			ft_strtrim.c \
+			ft_atoi.c \
+			ft_split.c
 
 BONUS	=	ft_lstnew.c \
 			ft_lstadd_front.c \

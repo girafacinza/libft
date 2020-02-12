@@ -6,13 +6,18 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:15:46 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/04 11:17:05 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/11 20:18:06 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-static int	ft_intsize(int n, int size)
+/*
+** Allocates and returns a string representing the integer received as
+** an argument. Negative numbers must be handled.
+*/
+
+static int	ft_intsize(long long n, int size)
 {
 	if (n < 10)
 		return (size + 1);
@@ -21,31 +26,23 @@ static int	ft_intsize(int n, int size)
 
 char		*ft_itoa(int n)
 {
-	char	*nbr;
-	int		size;
-	int		i;
+	char		*nbr;
+	int			size;
+	int			i;
+	long long	num;
 
-	if (n < 0)
+	i = (n < 0) ? 1 : 0;
+	num = (n < 0) ? (long long)n * -1 : (long long)n;
+	size = ft_intsize(num, i);
+	if (!(nbr = (char *)malloc((size + 1) * sizeof(char))))
+		return (NULL);
+	if (i == 1)
+		nbr[0] = '-';
+	nbr[size] = '\0';
+	while (--size >= i)
 	{
-		i = 1;
-		n = -n;
+		nbr[size] = (num % 10) + 48;
+		num /= 10;
 	}
-	else
-		i = 0;
-	size = ft_intsize(n, i);
-	if (NULL != (nbr = (char *)malloc((size + 1) * sizeof(char))))
-	{
-		if (i == 1)
-			nbr[0] = '-';
-		nbr[size--] = '\0';
-		while (size >= i)
-		{
-			nbr[size] = (n % 10) + 48;
-			n /= 10;
-			size--;
-		}
-
-		return (nbr);
-	}
-	return (NULL);
+	return (nbr);
 }

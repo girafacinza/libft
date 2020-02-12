@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 16:41:20 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 22:34:19 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/11 22:34:34 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,22 @@
 
 size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	len;
-	size_t	i;
+	size_t cont_dst;
+	size_t cont_src;
 
-	i = 0;
-	len = ft_strlen(src);
-	while (*dst && dstsize)
+	cont_dst = 0;
+	cont_src = 0;
+	while (*(dst + cont_dst) != '\0')
+		cont_dst++;
+	while (dstsize > cont_src + cont_dst + 1 && *(src + cont_src) != '\0')
 	{
-		dst++;
-		dstsize--;
-		i++;
+		*(dst + cont_dst + cont_src) = *(src + cont_src);
+		cont_src++;
 	}
-	while (*src && dstsize > 1)
-	{
-		*dst = *src;
-		dst++;
-		src++;
-		dstsize--;
-	}
-	if (dstsize)
-	{
-		*dst = '\0';
-		dst++;
-	}
-	return (i + len);
+	*(dst + cont_dst + cont_src) = '\0';
+	while (*(src + cont_src) != '\0')
+		cont_src++;
+	if (dstsize < cont_dst)
+		return (dstsize + cont_src);
+	return (cont_dst + cont_src);
 }

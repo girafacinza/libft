@@ -168,51 +168,39 @@ char		*ft_strtrim(char const *s1, char const *set)
 	return (NULL);
 }
 
-char	*ft_alocateword(char *buf, char c, char **array, int word)
+char    **ft_split(char const *s, char c)
 {
-	int i;
-	int size;
+    char    **array;
+    char    *buf;
+    int        i;
+    int        j;
+    int        word_len;
 
-	i = 0;
-	while (*buf == c)
-		buf++;
-	while (*(buf + i))
-	{
-		if (*(buf + i) == c || *(buf + i + 1) == '\0')
-		{
-			size = (*(buf + i + 1) == '\0') ? (i + 1) : i;
-			array[word] = (char *)malloc((size + 1) * sizeof(char));
-			array[word][size] = '\0';
-			while (--size >= 0)
-				array[word][size] = *(buf + size);
-			printf("%s\t", array[word]);
-			printf("[buf=%s]\n", buf + i);
-			return (buf + i);
-		}
-		i++;
-	}
-	return (NULL);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**array;
-	char	*buf;
-	int		i;
-	int		words;
-
-	buf = ft_strtrim(s, ft_ctos(c));
-	words = ft_countstr(buf, c);
-	if (!(array = (char **)malloc((words + 1) * sizeof(char *))))
-			return (NULL);
-	i = 0;
-	while (i < words)
-	{
-		buf = ft_alocateword(buf, c, array, i);
-		i++;
-	}
-	array[i] = NULL;
-	return (array);
+    buf = ft_strtrim(s, ft_ctos(c));
+    printf("%s\n", buf);
+    if (!(array = (char **)malloc(ft_countstr(buf, c) * sizeof(char *))))
+            return (NULL);
+    i = 0;
+    j = 0;
+    while (*(buf + i) != '\0')
+    {
+        if (*(buf + i) == c)
+        {
+            word_len = i;
+            array[j] = (char *)malloc((word_len + 1) * sizeof(char));
+            array[j][word_len] = '\0';
+            while (--word_len >= 0)
+                array[j][word_len] = *(buf + word_len);
+            printf("%s\n", array[j]);
+            printf("[buf=%s]", buf);
+            while (*(buf + i) == c)
+              i++;
+            j++;
+        }
+        else
+            i++;
+    }
+    return (array);
 }
 /*
 static void			ft_print_result(char const *s)

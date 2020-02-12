@@ -6,11 +6,16 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 19:07:57 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/01/25 19:20:53 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/11 19:50:04 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Writes 'len' bytes of value 'c' (converted to an unsigned char) to
+** the string 'b'.
+*/
 
 void	*ft_memset(void *b, int c, size_t len)
 {

@@ -6,11 +6,17 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 19:41:49 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/01/30 20:24:04 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/11 22:06:55 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Copies 'len' bytes from string 'src' to string 'dst'.
+** The two strings may overlap; the copy is always done in a
+** non-destructive manner.
+*/
 
 void			*ft_memmove(void *dst, const void *src, size_t len)
 {

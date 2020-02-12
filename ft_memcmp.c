@@ -6,11 +6,16 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 22:08:45 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/01/23 22:40:31 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/11 20:01:36 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Compares byte string 's1' against byte string 's2'.
+** Both strings are assumed to be 'n' bytes long.
+*/
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {

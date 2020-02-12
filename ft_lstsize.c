@@ -6,11 +6,15 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 10:28:06 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/04 12:40:44 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/11 20:51:27 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Counts the number of elements in a list.
+*/
 
 int		ft_lstsize(t_list *lst)
 {

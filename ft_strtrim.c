@@ -6,11 +6,16 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 11:13:32 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/04 11:15:05 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/11 20:14:39 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** Allocates and returns a copy of 's1' with the characters specified in
+** 'set' removed from the beginning and the end of the string.
+*/
 
 static int	ft_starttrim(char const *s1, char const *set)
 {
@@ -40,7 +45,7 @@ static int	ft_endtrim(char const *s1, char const *set, int start)
 	int i;
 	int j;
 
-	end = ft_strlen((char *)s1) - 1;
+	end = ft_strlen(s1) - 1;
 	i = end;
 	while (i > start && end == i)
 	{
@@ -69,17 +74,15 @@ char		*ft_strtrim(char const *s1, char const *set)
 		return ((char *)s1);
 	start = ft_starttrim(s1, set);
 	end = ft_endtrim(s1, set, start);
-	if (NULL != (str = (char *)malloc((end - start + 2) * sizeof(char))))
+	if (!(str = (char *)malloc((end - start + 2) * sizeof(char))))
+		return (NULL);
+	i = 0;
+	while (start <= end)
 	{
-		i = 0;
-		while (start <= end)
-		{
-			*(str + i) = s1[start];
-			start++;
-			i++;
-		}
-		*(str + i) = '\0';
-		return (str);
+		*(str + i) = s1[start];
+		start++;
+		i++;
 	}
-	return (NULL);
+	*(str + i) = '\0';
+	return (str);
 }
