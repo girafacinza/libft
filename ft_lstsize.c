@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 10:28:06 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 20:51:27 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/15 17:49:48 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_lstsize(t_list *lst)
 	if (!lst)
 		return (0);
 	size = 1;
-	while (lst->next != NULL)
+	while (lst->next)
 	{
 		size++;
 		lst = lst->next;

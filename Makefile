@@ -6,7 +6,7 @@
 #    By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/20 13:44:53 by lambrozi          #+#    #+#              #
-#    Updated: 2020/02/12 18:56:16 by lambrozi         ###   ########.fr        #
+#    Updated: 2020/02/08 12:55:44 by lambrozi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,3 +89,4 @@ norm:
 	norminette $(SRCS) $(BONUS)
 
 re: fclean all
+

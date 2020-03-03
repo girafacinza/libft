@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/21 22:30:11 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 19:51:35 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/15 13:37:50 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	int		i;
-	char	*str;
-
-	i = 0;
-	str = s;
-	while (n--)
-	{
-		str[i] = 0;
-		i++;
-	}
-	s = str;
+	ft_memset(s, 0, n);
 }

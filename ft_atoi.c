@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/07 21:37:51 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 21:35:59 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/19 22:28:14 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 ** Converts the initial portion of the string pointed to by 'str' to int
 ** representation.
 */
+
+#include "libft.h"
 
 static int	ft_isspace(char c)
 {
@@ -25,27 +27,26 @@ static int	ft_isspace(char c)
 
 int			ft_atoi(const char *str)
 {
-	long long	nbr;
+	int			nbr;
 	int			signal;
-	int			i;
+	int			aux;
 
-	i = 0;
 	nbr = 0;
-	signal = 1;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	aux = 0;
+	signal = -1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '+' || *str == '-')
+		if (*str++ == '-')
+			signal = 1;
+	while (ft_isdigit(*str))
 	{
-		signal = -1;
-		i++;
+		nbr = nbr * 10 - (*str++ - 48);
+		if (aux < nbr)
+		{
+			return (signal < 0) ? -1 : 0;
+		}
+		aux = nbr;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		nbr = 10 * nbr + (str[i] - 48);
-		i++;
-	}
-	nbr *= signal;
-	return (nbr);
+	return (nbr * signal);
 }
