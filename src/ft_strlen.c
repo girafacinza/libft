@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/20 12:11:18 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 19:37:50 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/19 20:12:34 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 size_t			ft_strlen(const char *s)
 {
-	unsigned long i;
+	unsigned long int	i;
 
+	if (!*s)
+		return (0);
 	i = 0;
 	while (s[i] != '\0')
 		i++;

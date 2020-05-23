@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/04 10:27:56 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 20:50:51 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/15 17:47:12 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)
 		return (NULL);
-	while (lst->next != NULL)
+	while (lst->next)
 		lst = lst->next;
 	return (lst);
 }

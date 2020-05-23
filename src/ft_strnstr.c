@@ -6,7 +6,7 @@
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/25 16:11:26 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 21:26:11 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/02/19 22:03:45 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** Characters that appear after a `\0' character are not searched.
 */
 
-char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	int i;
 	int j;
@@ -27,15 +27,20 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	j = 0;
 	if (!*(needle))
 		return ((char *)(haystack));
-	while (len-- && haystack[i])
+	while (len && haystack[i])
 	{
 		if (haystack[i] == needle[j])
 			j++;
 		else
+		{
 			i -= j;
+			len += j;
+			j = 0;
+		}
 		if (!needle[j])
 			return ((char *)haystack + i - j + 1);
 		i++;
+		len--;
 	}
 	return (NULL);
 }

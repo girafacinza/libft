@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/04 18:36:08 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 20:54:06 by lambrozi         ###   ########.fr       */
+/*   Created: 2020/02/15 18:12:58 by lambrozi          #+#    #+#             */
+/*   Updated: 2020/02/19 22:24:23 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@ void			ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list *aux;
 
-	if (!lst)
-		return ;
-	aux = *lst;
-	while (aux != NULL)
+	aux = (*lst);
+	if ((*lst) != NULL)
 	{
-		del(aux->content);
-		free(aux);
-		aux = aux->next;
+		while (aux != NULL)
+		{
+			(*lst) = aux->next;
+			del(aux->content);
+			free(aux);
+			aux = (*lst);
+		}
 	}
-	*lst = NULL;
+	lst = NULL;
 }
