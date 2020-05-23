@@ -3,14 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: lambrozi <lambrozi@student.42sp.org.b      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/01/20 13:44:53 by lambrozi          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2020/05/23 13:14:22 by lambrozi         ###   ########.fr        #
-=======
-#    Updated: 2020/02/08 12:55:44 by lambrozi         ###   ########.fr        #
->>>>>>> d3f3513adec8d899ae0acd7513fa2b23cba0c872
+#    Created: 2020/05/23 13:48:22 by lambrozi          #+#    #+#              #
+#    Updated: 2020/05/23 13:54:31 by lambrozi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +55,7 @@ fclean: clean
 	rm -f $(NAME)
 
 norm:
-	~/.norminette/norminette.rb $(SRC)
+	~/.norminette/norminette.rb $(SDIR) $(IDIR)
 
 re: fclean all
 
