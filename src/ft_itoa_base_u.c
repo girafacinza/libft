@@ -1,48 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_base_u.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lambrozi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/31 19:15:46 by lambrozi          #+#    #+#             */
-/*   Updated: 2020/02/11 20:18:06 by lambrozi         ###   ########.fr       */
+/*   Updated: 2020/06/01 09:33:57 by lambrozi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** Allocates and returns a string representing the integer received as
-** an argument. Negative numbers must be handled.
+** Allocates and returns a string representing the unsigned integer received as
+** an argument, changing his base to *base.
 */
 
-static int	ft_intsize(long long n, int size)
+static size_t	ft_intsize(size_t n, size_t size, size_t n_base)
 {
-	if (n < 10)
+	if (n < n_base)
 		return (size + 1);
-	return (ft_intsize(n / 10, size + 1));
+	return (ft_intsize(n / n_base, size + 1, n_base));
 }
 
-char		*ft_itoa(int n)
+char			*ft_itoa_base_u(size_t n, char const *base)
 {
 	char		*nbr;
-	int			size;
-	int			i;
-	long long	num;
+	size_t		size;
+	size_t		n_base;
 
-	i = (n < 0) ? 1 : 0;
-	num = (n < 0) ? (long long)n * -1 : (long long)n;
-	size = ft_intsize(num, i);
+	n_base = ft_strlen(base);
+	size = ft_intsize(n, 0, n_base);
 	if (!(nbr = (char *)malloc((size + 1) * sizeof(char))))
 		return (NULL);
-	if (i == 1)
-		nbr[0] = '-';
-	nbr[size] = '\0';
-	while (--size >= i)
+	nbr[size--] = '\0';
+	while (n >= n_base)
 	{
-		nbr[size] = (num % 10) + 48;
-		num /= 10;
+		nbr[size--] = base[n % n_base];
+		n /= n_base;
 	}
+	nbr[size] = base[n % n_base];
 	return (nbr);
 }
