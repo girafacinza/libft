@@ -1,7 +1,7 @@
-# libft
+# [libft](/others/en.subject.pdf)
 
 This is my own C library, where I've re-code some of C functions and some others not natives but also useful.
-To do so, I only could use the native's functions malloc, write and free, when necessary.
+To do so, I only used the functions __malloc__, __write__ and __free__, when necessary.
 
 ## functions list
 
@@ -48,3 +48,6 @@ To do so, I only could use the native's functions malloc, write and free, when n
 - lst_clear
 - lstiter
 - lstmap
+
+
+![libft_universe](../assets/libft.png?raw=true)
