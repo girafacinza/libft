@@ -1,6 +1,6 @@
-# [libft](/others/en.subject.pdf)
+# [libft_42](/others/en.subject.pdf)
 
-This is my own C library, where I've re-code some of C functions and some others not natives but also useful.
+This is my own C library, where I've re-code some of C functions and some others not natives but also useful ones.
 To do so, I only used the functions __malloc__, __write__ and __free__, when necessary.
 
 ## functions list
